@@ -1,0 +1,1457 @@
+/* Definindo a fonte Milkbath */
+@font-face {
+    font-family: 'Milkbath';
+    src: url('../Fontes/Milkbath.otf') format('opentype');
+    font-style: normal;
+}
+
+/* Definindo a fonte WhiteOnBlack */
+@font-face {
+    font-family: 'WhiteOnBlack';
+    src: url('../Fontes/WhiteOnBlack.ttf') format('truetype');
+    font-style: normal;
+}
+/*ESTILO DA PÁGINA DE LOGIN*/
+/* Reset de margens e padding para todos os elementos */
+.pagina_login *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo do body, com a imagem de fundo */
+body.pagina_login {
+    font-family: Arial, sans-serif;
+    background: url('../Imagens/Fundo.jpg') no-repeat center center fixed; /* Substitua pelo caminho da imagem */
+    background-size: cover; /* Faz a imagem cobrir toda a tela */
+    height: 100vh; /* Tela cheia */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centraliza a área de login */
+
+}
+
+
+/* Contêiner principal da página de login */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+   
+}
+
+/* Caixa de login com estilo */
+.login-box {
+    background-color: rgba(34, 34, 34, 0.9); /* Fundo branco translúcido */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra suave */
+    text-align: center;
+    color: #76a675;
+    width: 300px; /* Largura fixa */
+}
+
+/* Estilo do título */
+h1.h2_login {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #76a675;
+}
+
+/* Caixa de texto (entrada) */
+.textobox {
+    margin-bottom: 20px;
+    position: relative; /* Necessário para posicionar a checkbox dentro da caixa */
+}
+
+/* Estilo dos campos de entrada */
+.textobox input {
+    width: 100%; /* Ocupa toda a largura disponível */
+    padding: 15px; /* Aumenta o padding para aumentar a caixa de texto */
+    border: 1px solid #ccc; /* Borda cinza clara */
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+    background-color: #f5f5f5; /* Fundo cinza claro */
+}
+
+/* Estilo do campo de entrada quando é focado */
+.textobox input:focus {
+    border-color: #4CAF50; /* Cor verde quando focado */
+}
+
+/* Contêiner para o campo de senha e a checkbox de mostrar senha */
+.senha-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  
+  /* Estilo da checkbox para mostrar senha */
+  .senha-container .checkbox {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+    accent-color: #76a675;
+  }
+  
+  .senha-container .checkbox input[type="checkbox"] {
+    height: 20px;
+    width: 20px;
+  }
+
+/* Estilo do botão de login */
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    background-color: #76a675; /* Cor verde */
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transição suave */
+}
+
+/* Estilo do botão de login ao passar o mouse */
+.btn-login:hover {
+    background-color: #45a049; /* Verde mais escuro */
+}
+
+/* Estilo da área de links */
+.links {
+    margin-top: 15px;
+}
+
+/* Estilo do link de cadastro */
+.links .register-link {
+    color: #4CAF50; /* Cor verde */
+    text-decoration: none; /* Remove sublinhado */
+}
+
+/* Estilo do link de cadastro ao passar o mouse */
+.links .register-link:hover {
+    text-decoration: underline; /* Sublinha o link ao passar o mouse */
+}
+
+/*ESTILO DA PÁGINA DE CADASTRO*/
+/* Fundo da página */
+body.pagina_cadastro {
+    background-image: url('../Imagens/Fundo.jpg');
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    overflow: hidden; /* Remove  bvbarra de rolagem */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Efeito de desfoque para o fundo */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container principal */
+.container_cadastro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    padding: 0 20px;
+}
+
+/* Formulário de cadastro */
+.form-cadastro {
+    background-color: rgba(34, 34, 34, 0.9);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    color: #8fbc8f;
+}
+
+/* Título */
+.form-cadastro h2 {
+    text-align: center;
+    color: #8fbc8f;
+    margin-bottom: 20px;
+}
+
+/* Labels e inputs */
+.form-cadastro label {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #8fbc8f;
+    font-size: 14px;
+}
+
+.form-cadastro input[type="text"],
+.form-cadastro input[type="email"],
+.form-cadastro input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box; /* Garante ajuste correto */
+}
+
+/* Botão de cadastro */
+.form-cadastro button {
+    width: 100%;
+    padding: 10px;
+    background-color: #8fbc8f;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    color: #333;
+    cursor: pointer;
+}
+
+.form-cadastro button:hover {
+    background-color: #76a675;
+}
+/* Caixa de seleção de "Mostrar Senha" */
+.mostrar-senha {
+    display: flex;
+    justify-content: flex-end; /* Alinha à direita */
+    align-items: center;
+    margin-top: -10px;
+    margin-bottom: 15px;
+}
+
+.mostrar-senha input[type="checkbox"] {
+    width: 18px; /* Tamanho da caixa de seleção */
+    height: 18px;
+    margin-left: 8px; /* Espaço entre o texto e a caixa */
+    cursor: pointer;
+}
+
+/*ESTILO DA PÁGINA INICIAL*/
+/* Tema claro*/
+body.inicial {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5dc;
+h2 {
+    margin: 15px;
+}
+}
+/* Navbar Secundária (canto superior) */
+.linha1 {
+    background-color:#283949;
+    display: flex; /* Flexbox para disposição horizontal */
+    justify-content: flex-end; /* Alinha os itens à direita */
+    gap: 10px; /* Espaçamento entre os itens */
+    align-items: center; /* Alinha os itens no centro verticalmente */
+}
+
+/* Estilo padrão para todos os botões */
+.linha1 button{
+    background-color:  #e67e22;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover para todos os botões */
+.linha1 button:hover,
+.bntema:hover {
+    background-color: #555;
+}
+
+/* Dropdown */
+.tema {
+    position: relative; /* Necessário para posicionar o conteúdo abaixo */
+}
+
+/* Conteúdo do dropdown */
+.container_tema {
+    display: none; /* Oculto por padrão */
+    position: absolute;
+    background-color: #333;
+    min-width: 160px;
+    z-index: 1;
+    top: 100%; /* Posiciona logo abaixo do botão */
+}
+
+/* Links dentro do dropdown */
+.container_tema a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Estilo ao passar o mouser no tema */
+.container_tema a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Exibe o dropdown ao passar o mouse sobre o botão */
+.tema:hover .container_tema {
+    display: block;
+}
+/* Estilo para a mensagem de boas-vindas */
+.boas-vindas {
+    background-color: #2c3e50; /* Cor de fundo */
+    color: white;
+    padding: 1px;
+    text-align: center;
+    font-size: 45px;
+}
+
+.bem-vindo h1 {
+    margin: 0;
+}
+.tituloprincipal{
+    font-family: Milkbath, Arial, sans-serif;
+}
+/* Navbar Principal */
+.linha-principal {
+    background-color: #385169;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.linha-principal ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 30px;
+}
+/* Estilo para o botão ativo da navbar */
+.linha-principal button.ativo {
+    background-color:#f0c674; /* Destaque para o botão ativo */
+    font-weight: bold;
+}
+
+/* Container das Histórias */
+.historias-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Estilo Individual para Cada História */
+.historia {
+    width: 30%;
+    margin: 10px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #f9f9f9;
+}
+/*Efeito ao passar o mouser na historia*/
+.historia:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Imagem da História */
+/* Estilo para o título da história sobre a imagem */
+.historia-imagem {
+    position: relative; /* Necessário para que o título seja posicionado sobre a imagem */
+    overflow: hidden;   /* Garante que nada saia da área da imagem */
+}
+
+.historia-imagem img {
+    width: 100%;
+    height: auto;
+    display: block;     /* Garante que a imagem ocupe o espaço disponível */
+}
+
+.historia-titulo {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 10px;
+    font-size: 1.2em;
+}
+
+/* Detalhes da História */
+.historia-detalhes {
+    padding: 15px;
+    font-size: 16px;
+}
+button {
+    margin: 2px;
+    background-color: #e97713;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.genero {
+    color: #555;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.data-lancamento {
+    color: #777;
+    font-style: italic;
+}
+
+/* Estilo para a caixa de texto do título da história */
+.titulo-historia {
+    width: 100%;           /* Largura total para ocupar a linha */
+    max-width: 600px;      /* Largura máxima para ajustar conforme o layout */
+    padding: 8px;          /* Espaço interno para facilitar a leitura */
+    font-size: 16px;       /* Tamanho da fonte adequado */
+    border: 1px solid #ccc; /* Borda */
+    border-radius: 5px;    /* Bordas arredondadas */
+    margin-top: 10px;      /* Espaço acima da caixa */
+}
+label {
+    margin: 10px; /* Adiciona margem em todos os lados */
+}
+/* Estilo para a caixa de seleção de gênero */
+.genero-historia {
+    width: 15%;           /* Largura total para alinhamento */
+    padding: 8px;          /* Espaçamento interno */
+    font-size: 16px;       /* Tamanho de fonte */
+    border: 1px solid #ccc; /* Borda */
+    border-radius: 5px;    /* Bordas arredondadas */
+    margin-top: 10px;      /* Espaço entre o título e o gênero */
+}
+
+/* Estilo para a linha que contém gênero e data */
+.linha-genero-data {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaçamento entre as caixas */
+    margin-top: 10px;
+}
+
+
+/* Estilo para a caixa de data de modificação */
+.data-modificacao {
+    width: 100px;           /* Define a largura da caixa */
+    padding: 8px;
+    font-size: 16px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9; /* Fundo para destacar a caixa */
+}
+/* Estilo da caixa de texto (textarea) */
+textarea {
+    margin: 15px;
+    width: 100%;            /* Garantir que ocupe toda a largura disponível */
+    max-width: 1000px;       /* Limitar o tamanho máximo da largura */
+    height: 300px;          /* Altura da caixa */
+    padding: 10px;          /* Espaço interno */
+    font-size: 16px;        /* Tamanho de fonte adequado */
+    font-family: Arial, sans-serif; /* Fonte */
+    border: 1px solid #ccc; /* Borda */
+    border-radius: 5px;     /* Bordas arredondadas */
+    background-color: #f9f9f9; /* Fundo suave */
+    resize: vertical;       /* Permite o redimensionamento vertical */
+    overflow-y: auto;       /* Rolagem vertical */
+    box-sizing: border-box; /* Inclui padding e borda no cálculo do tamanho */
+}
+
+
+/* Estilo para a escrita do texto*/
+textarea::placeholder {
+    color: #888;         
+    font-style: italic;
+}
+/* Estilo para o campo de upload de imagem */
+input[type="file"] {
+    margin: 15px;
+    width: 30%;             /* Largura total para o campo de upload */
+    padding: 10px;           /* Espaço interno */
+    border: 1px solid #c0c0c0;  /* Borda suave */
+    border-radius: 12px;      /* Bordas arredondadas */
+    background-color: #e7e6e6; /* Fundo suave */
+    font-size: 16px;         /* Tamanho da fonte */
+    font-family: Arial, sans-serif; /* Fonte */
+    box-sizing: border-box;  /* Inclui o padding no cálculo da largura */
+}
+#dicasSecao {
+    margin: 25px; /* Margem superior/inferior e centralização horizontal */
+   
+}
+
+#dicasSecao h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #e67e22; /* Cor para destacar o título */
+}
+.dicas-tabelas {
+    margin-top: 20px;
+}
+
+.dicas-tabelas h3 {
+    margin-top: 30px;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.dicas-tabela {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.dicas-tabela thead {
+    background-color: #e67e22;
+    color: white;
+    text-align: left;
+}
+/*Bordas da tabela*/
+.dicas-tabela th,
+.dicas-tabela td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+/*Cor das linhas 1 e 3 na tanela*/
+.dicas-tabela tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+/*Cor da linha 2 na tanela*/
+.dicas-tabela tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+/*Cor ao passar o mouser na tanela*/
+.dicas-tabela tbody tr:hover {
+    background-color: #f1f1f1;
+}/* Estilo para o contêiner dos links */
+
+  
+  .sestilo-lista li {
+    margin: 10px 0; /* Espaçamento entre os itens */
+  }
+  
+  /* Estilo para os links */
+  .estilo-lista {
+    text-decoration: none; /* Remove o sublinhado */
+    font-size: 18px; /* Aumenta o tamanho do texto */
+    font-weight: bold; /* Destaca o texto */
+    padding: 10px 20px; /* Adiciona espaço interno */
+    transition: 0.3s; /* Animação suave ao passar o mouse */
+  }
+  
+  /* Estilo específico ao passar o mouse sobre o link1 */
+.link1:hover {
+    background-color: #d4a645; /* Muda para um tom mais escuro */
+}
+
+/* Estilo específico ao passar o mouse sobre o link2 */
+.link2:hover {
+    background-color: #a3c4f3; /* Muda para um tom azul-claro */
+}
+  
+
+/* Estilizar a aba de leitura */
+#leitura {
+    padding: 20px; /* Adiciona espaço interno para afastar o conteúdo das bordas */
+    margin: 20px; /* Adiciona espaço externo para melhorar o layout */
+    background-color: #f9f9f9; /* Fundo claro para leitura confortável */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Estilizar o conteúdo do texto */
+.conteudo-leitura p {
+    line-height: 1.5; /* Espaçamento de 1.5 entre linhas */
+    margin-bottom: 25px; /* Maior espaçamento entre os parágrafos */
+    text-align: justify; /* Justifica o texto para alinhamento uniforme */
+}
+
+
+/* Para o título e outros detalhes */
+#tituloLeitura {
+    font-size: 2rem; /* Tamanho maior para o título */
+    margin-bottom: 15px; /* Espaçamento após o título */
+    text-align: center; /* Centralizar o título */
+}
+
+.detalhes-leitura p {
+    font-size: 1.2rem; /* Tamanho confortável para os detalhes */
+    margin-bottom: 10px; /* Espaçamento entre os detalhes */
+    color: #555; /* Cor levemente escura para contraste */
+}
+/* Estilo do rodapé */
+footer { 
+    text-align: right; /* Centraliza a imagem */
+    margin: 10px;
+    margin-top: 20px; /* Espaço acima do rodapé */
+  }
+  figure {
+    text-align: center; /* Centraliza o título abaixo da imagem */
+    margin: 0; /* Remove a margem padrão do <figure> */
+  }
+  .rodape-imagem {
+    width: 100px; /* Ajuste o tamanho da imagem */
+    height: auto; /* Mantém a proporção da imagem */
+    cursor: pointer; /* Muda o cursor para uma mãozinha ao passar sobre a imagem */
+    transition: transform 0.3s ease; /* Transição suave */
+  }
+  
+  /* Efeito de hover */
+  .rodape-imagem:hover {
+    transform: scale(1.05); /* Aumenta a imagem ao passar o mouse */
+  }
+  /* Estilo para o título da imagem */
+    figcaption {
+    font-size: 16px; /* Ajuste o tamanho da fonte */
+    color: #333; /* Cor do texto do título */
+    margin-top: 10px; /* Espaço entre a imagem e o título */
+    font-weight: bold; /* Destaca o título */
+  }
+
+/* Temas */
+.tema-padrao {
+    .linha1 {
+        background-color:#283949;
+    }
+    .linha1 button{
+        background-color:  #e67e22;
+        color: white;
+    }
+    /* Hover para todos os botões */
+    .linha1 button:hover,
+    .bntema:hover {
+        background-color: #555;
+    }
+    /* Conteúdo do dropdown */
+    .container_tema {
+        background-color: #333;
+    }
+    /* Links dentro do dropdown */
+    .container_tema a {
+        color: white;
+    }
+    
+    /* Estilo ao passar o mouser no tema */
+    .container_tema a:hover {
+        background-color: #00054b;
+        color: rgb(233, 130, 82);
+    }
+    /* Estilo para a mensagem de boas-vindas */
+    .boas-vindas {
+        background-color: #2c3e50; /* Cor de fundo */
+        color: white;
+    }
+    /* Navbar Principal */
+    .linha-principal {
+        background-color: #385169;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    /* Estilo para o botão ativo da navbar */
+    .linha-principal button.ativo {
+        background-color:#f0c674; /* Destaque para o botão ativo */
+    }
+    /* Estilo Individual para Cada História */
+    .historia {
+        border: 1px solid #ccc;
+        background-color: #f9f9f9;
+    }
+    .historia:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+    .historia-titulo {
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+    }
+    button {
+        background-color: #e67e22;
+        color: white;
+    }
+    textarea {
+        background-color: #f9f9f9; /* Fundo suave */
+    }
+    #dicasSecao h2 {
+        color: #e67e22; /* Cor para destacar o título */
+    }
+    .dicas-tabelas h3 {
+        color: #333;
+    }
+    .dicas-tabela thead {
+        background-color: #e67e22;
+        color: white;
+    } 
+    /*Cor das linhas 1 e 3 na tanela*/
+    .dicas-tabela tbody tr:nth-child(odd) {
+        background-color: #f9f9f9;
+    }
+    /*Cor da linha 2 na tanela*/
+    .dicas-tabela tbody tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    /*Cor ao passar o mouser na tanela*/
+    .dicas-tabela tbody tr:hover {
+        background-color: #f1f1f1;
+    }
+    #leitura {
+        background-color: #f9f9f9; /* Fundo claro para leitura confortável */
+    }
+    
+}
+.tema-verde {
+    h2 { 
+        margin: 15px;
+        color: #167a36;
+    }
+   
+    .linha1 {
+        background-color:#167a36;
+    }
+    .linha1 button{
+        background-color:  #6EAE41;
+        color: white;
+    }
+    /* Hover para todos os botões */
+    .linha1 button:hover,
+    .bntema:hover {
+        background-color: #82ff51;
+    }
+    /* Conteúdo do dropdown */
+    .container_tema {
+        background-color: #106300;
+    }
+    /* Links dentro do dropdown */
+    .container_tema a {
+        color: white;
+    }
+    
+    /* Estilo ao passar o mouser no tema */
+    .container_tema a:hover {
+        background-color: #224100;
+        color: rgb(40, 248, 51);
+    }
+    /* Estilo para a mensagem de boas-vindas */
+    .boas-vindas {
+        background-color: #11662C; /* Cor de fundo */
+        color: white;
+    }
+    /* Navbar Principal */
+    .linha-principal {
+        background-color: #0e4e23;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    /* Estilo para o botão ativo da navbar */
+    .linha-principal button.ativo {
+        background-color:#79b44f; /* Destaque para o botão ativo */
+    }
+    /* Estilo Individual para Cada História */
+    .historia {
+        border: 1px solid #ccc;
+        background-color: #f9f9f9;
+    }
+    .historia:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+    .historia-titulo {
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+    }
+    button {
+        background-color: #6EAE41;
+        color: white;
+    }
+    textarea {
+        background-color: #f9f9f9; /* Fundo suave */
+    }
+    #dicasSecao h2 {
+        color: #12823E; /* Cor para destacar o título */
+    }
+    .dicas-tabelas h3 {
+        color: #333;
+    }
+    .dicas-tabela thead {
+        background-color: #12823E;
+        color: rgb(255, 255, 255);
+    } 
+    /*Cor das linhas 1 e 3 na tanela*/
+    .dicas-tabela tbody tr:nth-child(odd) {
+        background-color: #f9f9f9;
+        color:rgb(0, 0, 0)
+    }
+    /*Cor da linha 2 na tanela*/
+    .dicas-tabela tbody tr:nth-child(even) {
+        background-color: #f2f2f2;
+        color:rgb(0, 0, 0)
+    }
+    /*Cor ao passar o mouser na tanela*/
+    .dicas-tabela tbody tr:hover {
+        background-color: #ace28d;
+    }
+    #leitura {
+        background-color: #f9f9f9; /* Fundo claro para leitura confortável */
+    }
+    
+}
+.tema-vermelho {
+    .linha1 {
+        background-color:#b30000;
+    }
+    .linha1 button{
+        background-color:  #ff4d4d;
+        color: white;
+    }
+    /* Hover para todos os botões */
+    .linha1 button:hover,
+    .bntema:hover {
+        background-color:#d9d9d9;
+    }
+    /* Conteúdo do dropdown */
+    .container_tema {
+        background-color: #d30000;
+    }
+    /* Links dentro do dropdown */
+    .container_tema a {
+        color: white;
+    }
+    
+    /* Estilo ao passar o mouser no tema */
+    .container_tema a:hover {
+        background-color: #630101;
+        color: rgb(228, 55, 55);
+    }
+    /* Estilo para a mensagem de boas-vindas */
+    .boas-vindas {
+        background-color: #bd0b0b; /* Cor de fundo */
+        color: white;
+    }
+    /* Navbar Principal */
+    .linha-principal {
+        background-color: #ce1010;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    /* Estilo Individual para Cada História */
+    .historia {
+        border: 1px solid #ccc;
+        background-color: #f9f9f9;
+    }
+    .historia:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+    .historia-titulo {
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+    }
+    button {
+        background-color: #ff4d4d;
+        color: white;
+    }
+    textarea {
+        background-color: #f9f9f9; /* Fundo suave */
+    }
+    #dicasSecao h2 {
+        color: #990000; /* Cor para destacar o título */
+    }
+    .dicas-tabelas h3 {
+        color: #333;
+    }
+    .dicas-tabela thead {
+        background-color: #990000;
+        color: white;
+    } 
+    /*Cor das linhas 1 e 3 na tanela*/
+    .dicas-tabela tbody tr:nth-child(odd) {
+        background-color:#ffc0c0 ;
+    }
+    /*Cor da linha 2 na tanela*/
+    .dicas-tabela tbody tr:nth-child(even) {
+        background-color:#ffe5e5;
+    }
+    /*Cor ao passar o mouser na tanela*/
+    .dicas-tabela tbody tr:hover {
+        background-color: #f1f1f1;
+    }
+    #leitura {
+        background-color: #fff4f4; /* Fundo claro para leitura confortável */
+    }
+    
+}
+.tema-azul {
+    .linha1 {
+        background-color:#004080;
+    }
+    .linha1 button{
+        background-color:  #0073e6;
+        color: white;
+    }
+    /* Hover para todos os botões */
+    .linha1 button:hover,
+    .bntema:hover {
+        background-color: #cce0ff;
+        color:#00054b
+    }
+    /* Conteúdo do dropdown */
+    .container_tema {
+        background-color: #0a024b;
+    }
+    /* Links dentro do dropdown */
+    .container_tema a {
+        color: white;
+    }
+    
+    /* Estilo ao passar o mouser no tema */
+    .container_tema a:hover {
+        background-color: #0300a1;
+        color: rgb(173, 229, 231);
+    }
+    /* Estilo para a mensagem de boas-vindas */
+    .boas-vindas {
+        background-color: #0c4c8d;
+        color: white;
+    }
+    /* Navbar Principal */
+    .linha-principal {
+        background-color: #0e569e;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    /* Estilo Individual para Cada História */
+    .historia {
+        border: 1px solid #ccc;
+        background-color: #f9f9f9;
+    }
+    .historia:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+    .historia-titulo {
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+    }
+    button {
+        background-color: #0073e6;
+        color: white;
+    }
+    textarea {
+        background-color: #f9f9f9; /* Fundo suave */
+    }
+    #dicasSecao h2 {
+        color:#003366 ; /* Cor para destacar o título */
+    }
+    .dicas-tabelas h3 {
+        color: #333;
+    }
+    .dicas-tabela thead {
+        background-color: #003366;
+        color: white;
+    } 
+    /*Cor das linhas 1 e 3 na tanela*/
+    .dicas-tabela tbody tr:nth-child(odd) {
+        background-color: #d0ebfd  ;
+    }
+    /*Cor da linha 2 na tanela*/
+    .dicas-tabela tbody tr:nth-child(even) {
+        background-color:#d9f2ff;
+    }
+    /*Cor ao passar o mouser na tabela*/
+    .dicas-tabela tbody tr:hover {
+        background-color: #f1f1f1;
+    }
+    #leitura {
+        background-color: #def2ff;
+    }
+    
+}
+.tema-rosa {
+    .linha1 {
+        background-color:#b9015d;
+    }
+    .linha1 button{
+        background-color:   #ff49a4;
+        color: white;
+    }
+    /* Hover para todos os botões */
+    .linha1 button:hover,
+    .bntema:hover {
+        background-color:#d9d9d9;
+    }
+    /* Conteúdo do dropdown */
+    .container_tema {
+        background-color: #8d002f;
+    }
+    /* Links dentro do dropdown */
+    .container_tema a {
+        color: white;
+    }
+    
+    /* Estilo ao passar o mouser no tema */
+    .container_tema a:hover {
+        background-color: #ad0a56;
+        color: rgb(235, 143, 219);
+    }
+    /* Estilo para a mensagem de boas-vindas */
+    .boas-vindas {
+        background-color: #cc0569; /* Cor de fundo */
+        color: white;
+    }
+    /* Navbar Principal */
+    .linha-principal {
+        background-color: #da0f74;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    /* Estilo Individual para Cada História */
+    .historia {
+        border: 1px solid #ccc;
+        background-color: #f9f9f9;
+    }
+    .historia:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+    .historia-titulo {
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+    }
+    button {
+        background-color: #ff49a4;
+        color: white;
+    }
+    textarea {
+        background-color: #f9f9f9; /* Fundo suave */
+    }
+    #dicasSecao h2 {
+        color: #99004d; /* Cor para destacar o título */
+    }
+    .dicas-tabelas h3 {
+        color: #333;
+    }
+    .dicas-tabela thead {
+        background-color: #99004d;
+        color: white;
+    } 
+    /*Cor das linhas 1 e 3 na tanela*/
+    .dicas-tabela tbody tr:nth-child(odd) {
+        background-color:#ffcce8 ;
+    }
+    /*Cor da linha 2 na tanela*/
+    .dicas-tabela tbody tr:nth-child(even) {
+        background-color:#ffdbed;
+    }
+    /*Cor ao passar o mouser na tabela*/
+    .dicas-tabela tbody tr:hover {
+        background-color: #ffe3f0;
+    }
+    #leitura {
+        background-color: #ffd4ef; /* Fundo claro para leitura confortável */
+    }
+    
+}
+.tema-roxo {
+    .linha1 {
+        background-color:#4b0082 ;
+    }
+    .linha1 button{
+        background-color:   #8000ff ;
+        color: white;
+    }
+    /* Hover para todos os botões */
+    .linha1 button:hover,
+    .bntema:hover {
+        background-color:#d9d9d9;
+    }
+    /* Conteúdo do dropdown */
+    .container_tema {
+        background-color: #340049;
+    }
+    /* Links dentro do dropdown */
+    .container_tema a {
+        color: white;
+    }
+    
+    /* Estilo ao passar o mouser no tema */
+    .container_tema a:hover {
+        background-color: #350aad;
+        color: rgb(191, 143, 235);
+    }
+    /* Estilo para a mensagem de boas-vindas */
+    .boas-vindas {
+        background-color: #550092 ; /* Cor de fundo */
+        color: white;
+    }
+    /* Navbar Principal */
+    .linha-principal {
+        background-color: #5e00a1;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    /* Estilo Individual para Cada História */
+    .historia {
+        border: 1px solid #ccc;
+        background-color: #f9f9f9;
+    }
+    .historia:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+    .historia-titulo {
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+    }
+    button {
+        background-color: #8000ff ;
+        color: white;
+    }
+    textarea {
+        background-color: #f9f9f9; /* Fundo suave */
+    }
+    #dicasSecao h2 {
+        color: #6600cc ; /* Cor para destacar o título */
+    }
+    .dicas-tabelas h3 {
+        color: #333;
+    }
+    .dicas-tabela thead {
+        background-color: #6600cc ;
+        color: white;
+    } 
+    /*Cor das linhas 1 e 3 na tanela*/
+    .dicas-tabela tbody tr:nth-child(odd) {
+        background-color:#e6ccff ;
+    }
+    /*Cor da linha 2 na tanela*/
+    .dicas-tabela tbody tr:nth-child(even) {
+        background-color:#f9f2ff ;
+    }
+    /*Cor ao passar o mouser na tabela*/
+    .dicas-tabela tbody tr:hover {
+        background-color: #ffe3f0;
+    }
+    #leitura {
+        background-color: #f5d4ff; /* Fundo claro para leitura confortável */
+    }
+    
+}
+.tema-amarelo {
+    .linha1 {
+        background-color:#ffc413 ;
+    }
+    .linha1 button{
+        background-color:   #fff243;
+        color: #726700;
+    }
+    /* Hover para todos os botões */
+    .linha1 button:hover,
+    .bntema:hover {
+        background-color:#d9d9d9;
+    }
+    /* Conteúdo do dropdown */
+    .container_tema {
+        background-color: #ffea31;
+    }
+    /* Links dentro do dropdown */
+    .container_tema a {
+        color: white;
+    }
+    
+    /* Estilo ao passar o mouser no tema */
+    .container_tema a:hover {
+        background-color: #ffe600;
+        color: #b9ad00;
+    }
+    /* Estilo para a mensagem de boas-vindas */
+    .boas-vindas {
+        background-color: #ffca2a; /* Cor de fundo */
+        color: white;
+    }
+    /* Navbar Principal */
+    .linha-principal {
+        background-color: #ffdc3f;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    /* Estilo Individual para Cada História */
+    .historia {
+        border: 1px solid #ccc;
+        background-color: #f9f9f9;
+    }
+    .historia:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+    .historia-titulo {
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+    }
+    button {
+        background-color: #fff243;
+        color: #726700;
+    }
+    textarea {
+        background-color: #f9f9f9; /* Fundo suave */
+    }
+    #dicasSecao h2 {
+        color: #cc7a00; /* Cor do título */
+    }
+    .dicas-tabelas h3 {
+        color: #333;
+    }
+    .dicas-tabela thead {
+        background-color: #cc7a00; /*Cor da tabela*/
+        color: white;
+    } 
+    /*Cor das linhas 1 e 3 na tanela*/
+    .dicas-tabela tbody tr:nth-child(odd) {
+        background-color:#fff2b3 ;
+    }
+    /*Cor da linha 2 na tanela*/
+    .dicas-tabela tbody tr:nth-child(even) {
+        background-color:#fff4cc;
+    }
+    /*Cor ao passar o mouser na tabela*/
+    .dicas-tabela tbody tr:hover {
+        background-color: #ffe066;
+    }
+    #leitura {
+        background-color: #fffcd4; /* Fundo claro para leitura confortável */
+    }
+    
+}
+/* Responsividade consolidada para dispositivos móveis e tablets */
+@media (max-width: 768px) {
+    .titulo-historia {
+        font-size: 14px; /* Ajustar o tamanho do título*/
+    }
+    .genero-historia {
+        width: 30%; /* Caixas de gênero e data ocupam 100% da largura */
+    }
+    .data-modificacao {
+        width: 10%; /* Caixa de data de modificação também ocupa 100% */
+    }
+    /* Ajustes para a textarea */
+    textarea {
+        width: 90%;           /* Ajusta a largura da caixa para caber melhor em telas menores */
+        font-size: 14px;      /* Ajusta o tamanho da fonte */
+    }
+
+    /* Ajustes para o campo de upload de imagem */
+    input[type="file"] {
+        width: 90%;           /* Ajusta a largura do campo de upload de imagem */
+    }
+}
+@media screen and (max-width: 480px) {
+    .bem-vindo .tituloprincipal{
+        width: 80%;
+        font-size: 14px;
+    }
+    .titulo-historia {
+        width: 60%;
+        font-size: 14px; /* Ajustar o tamanho do título*/
+    }
+    .genero-historia {
+        width: 40%; /* Caixas de gênero e data ocupam 100% da largura */
+    }
+    .data-modificacao {
+        width: 15%; /* Caixa de data de modificação também ocupa 100% */
+    }
+    /* Ajustes para a textarea */
+    textarea {
+        width: 90%;           /* Ajusta a largura da caixa para caber melhor em telas menores */
+        font-size: 14px;      /* Ajusta o tamanho da fonte */
+    }
+
+    /* Ajustes para o campo de upload de imagem */
+    input[type="file"] {
+        width: 90%;           /* Ajusta a largura do campo de upload de imagem */
+    }
+}
+@media screen and (max-width: 250px) { 
+    .titulo-historia {
+        width: 80%;
+        font-size: 14px; /* Ajustar o tamanho do título*/
+    }
+    .genero-historia {
+        width: 50%; /* Caixas de gênero e data ocupam 100% da largura */
+    }
+    .data-modificacao {
+        width: 25%; /* Caixa de data de modificação também ocupa 100% */
+    }
+    /* Ajustes para a textarea */
+    textarea {
+        width: 90%;           /* Ajusta a largura da caixa para caber melhor em telas menores */
+        font-size: 14px;      /* Ajusta o tamanho da fonte */
+    }
+
+    /* Ajustes para o campo de upload de imagem */
+    input[type="file"] {
+        width: 90%;           /* Ajusta a largura do campo de upload de imagem */
+    }
+}
+body.paginacreditos{
+    font-family: StraightTown, WhiteOnBlack,Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+    margin: 0;
+    background: url('../Imagens/Fundo.jpg') no-repeat center center fixed; /* Substitua pelo caminho da imagem */
+    background-size: cover; 
+}
+/* Estilo para a imagem flutuante */
+.imagem-flutuante {
+    float: right; /* Faz a imagem flutuar à direta */
+    margin-top: 200px; /* Espaçamento à esquerda da imagem */
+    margin-left: 20px; /* Espaçamento à esquerda da imagem */
+    width: 150px; /* Define o tamanho da imagem */
+    height: auto; /* Mantém a proporção da imagem */
+    border-radius: 10px; /* Bordas arredondadas na imagem */
+}
+h2.titulo-credito{
+    font-family: WhiteOnBlack;
+}
+
+    #creditos {
+        background-color: #8dac90f6;
+        padding: 20px;
+        border-radius: 10px; /* Bordas arredondadas */
+        margin: 20px auto;
+        max-width: 1000px; /* Limita a largura da seção */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+        font-family: 'Arial', sans-serif; /* Fonte limpa e legível */
+    }
+    
+    #creditos h2 {
+        font-size: 40px;
+        color: #333; /* Cor escura para o título */
+        margin-bottom: 15px;
+        text-align: center; /* Alinha o título ao centro */
+    }
+    
+    #creditos p {
+        font-size: 20px;
+        color: #181510; /* Cor de texto suave */
+        line-height: 1.6; /* Espaçamento entre linhas */
+        margin-bottom: 10px;
+        text-align: justify; /* Alinha o texto de forma justificada */
+    }
+    
+    #creditos strong {
+        color: #f0e7d8;
+    }
+    
+    #creditos a {
+        color: #00eeff;
+        text-decoration: none; /* Remove o sublinhado */
+    }
+    
+    #creditos a:hover {
+        text-decoration: underline;
+    }
+    ol {
+        margin-top: 20px;
+        padding-left: 20px;
+        font-size: 18px;
+        color: #333;
+    }
+    
+    /* Estilo para os itens da lista */
+    ol li {
+        margin-bottom: 10px;
+    }
+    .btn-voltar:hover {
+        background-color: #d8b15c; /* Cor ao passar o mouse */
+        transition: background-color 0.3s ease; /* Transição suave */
+    }
+   /* Responsividade para telas com largura de 480px */
+@media screen and (max-width: 480px) {
+    /* Ajustar a imagem flutuante */
+    .imagem-flutuante {
+        width: 100px; /* Reduzir o tamanho da imagem */
+        margin-right: 10px; /* Reduzir o espaçamento */
+    }
+
+    /* Ajustar a seção de créditos */
+    #creditos {
+        padding: 15px; /* Menos padding para telas menores */
+        max-width: 100%; /* Permitir que a seção ocupe toda a largura da tela */
+        margin: 10px; /* Adicionar margem para evitar que o conteúdo fique muito colado nas bordas */
+    }
+
+    /* Ajustar o título */
+    .titulo-credito {
+        font-size: 20px; /* Reduzir o tamanho do título */
+    }
+
+    /* Ajustar os itens da lista */
+    ol li {
+        font-size: 16px; /* Reduzir o tamanho da fonte */
+    }
+
+    /* Ajustar o botão de voltar */
+    .btn-voltar {
+        padding: 8px 15px; /* Menos padding no botão */
+        font-size: 14px; /* Reduzir o tamanho da fonte do botão */
+    }
+}
+
+/* Responsividade para telas com largura de 250px */
+@media screen and (max-width: 250px) {
+    /* Ajustar a imagem flutuante */
+    .imagem-flutuante {
+        width: 60px; /* Tamanho ainda menor da imagem */
+        margin-right: 3px; /* Reduzir ainda mais o espaçamento */
+    }
+
+    /* Ajustar a seção de créditos */
+    #creditos {
+        padding: 10px; /* Menos padding */
+        margin: 5px; /* Menos margem */
+    }
+
+    /* Ajustar o título */
+    .titulo-credito {
+        font-size: 18px; /* Tamanho ainda menor para o título */
+    }
+
+    /* Ajustar os itens da lista */
+    ol li {
+        font-size: 14px; /* Reduzir ainda mais o tamanho da fonte */
+    }
+
+    /* Ajustar o botão de voltar */
+    .btn-voltar {
+        padding: 6px 12px; /* Menos padding no botão */
+        font-size: 12px; /* Tamanho da fonte reduzido no botão */
+    }
+}

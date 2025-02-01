@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="./imagens/logo1.png">
+    <title>O Mundo dos Sussurros</title>
+    <link rel="stylesheet" href="./CSS/Estilos.css">
+</head>
+<body class="inicial">
+    <!-- Primeira linha da página -->
+    <div class="linha1">
+        <button onclick="location.href='./html/Pagina_login.html'">Sair</button>
+     <!-- Botão de temas com -->
+     <div class="tema">
+        <button class="bntema">Temas</button>
+        <div class="container_tema">
+            <a href="#" onclick="alterarTema('tema-padrao')">Padrão</a>
+            <a href="#" onclick="alterarTema('tema-amarelo')">Amarelo</a>
+            <a href="#" onclick="alterarTema('tema-azul')">Azul</a>
+            <a href="#" onclick="alterarTema('tema-rosa')">Rosa</a>
+            <a href="#" onclick="alterarTema('tema-roxo')">Roxo</a>
+            <a href="#" onclick="alterarTema('tema-verde')">Verde</a>
+            <a href="#" onclick="alterarTema('tema-vermelho')">Vermelho</a>
+           
+        </div>
+    </div>
+   </div>
+</div>
+    <!-- Mensagem de boas-vindas -->
+    <div class="boas-vindas">
+        <p class="tituloprincipal">Bem-vindo(a) ao seu Mundo dos Sussurros</p>
+    </div>
+
+    <!-- Navbar Principal --> 
+    <div class="linha-principal">
+        <button onclick="exibirSeção('paginaInicial')">Página Inicial</button>
+        <button onclick="exibirSeção('leitura')">Leitura</button>
+        <button onclick="exibirSeção('criar')">Criar</button>
+        <button onclick="exibirSeção('dicasSecao')">Dicas</button>
+    </div>
+
+    <!-- Seções do conteúdo, exibidas conforme a aba selecionada -->
+    <div id="paginaInicial" class="seção ativa">
+        <h2>Página Inicial</h2>
+        <div class="historias-container">
+            <!-- As histórias serão carregadas dinamicamente -->
+             
+        </div>
+    </div>
+    
+    <script>
+     function alterarTema(tema) {
+    // Remove todas as classes de tema
+    document.body.classList.remove('tema-padrao','tema-amarelo', 'tema-vermelho', 'tema-verde', 'tema-azul', 'tema-rosa', 'tema-roxo');
+
+    // Adiciona o novo tema
+    document.body.classList.add(tema);
+}
+  // Carregar histórias salvas
+  window.onload = function () {
+    const historiasContainer = document.querySelector('.historias-container');
+    historiasContainer.innerHTML = ''; // Limpa o conteúdo inicial
+    const historiasSalvas = JSON.parse(localStorage.getItem('historias')) || [];
+    if (historiasSalvas.length === 0) {
+        historiasContainer.innerHTML = '<p>Nenhuma história encontrada.<br>Crie uma nova história na seção criar!!<br><p>';
+        return;
+    }
+
+    historiasSalvas.forEach((historia, index) => {
+        const historiaDiv = document.createElement('div');
+        historiaDiv.classList.add('historia');
+        historiaDiv.innerHTML = `
+            <div class="historia-imagem" onclick="exibirHistoria(${index})">
+                <img src="${historia.imagem}" alt="Miniatura da História" class="miniatura">
+            </div>
+            <div class="historia-titulo">
+                <p>${historia.titulo}</p>
+            </div>
+            <div class="historia-detalhes">
+                <p class="genero">Gênero: ${historia.genero}</p>
+                <p class="data-lancamento">Lançado em: ${historia.dataLancamento}</p>
+            </div>
+            <button onclick="apagarHistoria(${index})">Excluir</button>
+        `;
+        historiasContainer.appendChild(historiaDiv);
+    });
+};
+// Função para exibir a história completa na aba Leitura
+function exibirHistoria(index) {
+    const historiasSalvas = JSON.parse(localStorage.getItem('historias')) || [];
+    const historia = historiasSalvas[index];
+
+    if (!historia) {
+        alert('História não encontrada!');
+        return;
+    }
+
+    // Atualizar a aba Leitura com os dados da história
+    document.getElementById('tituloLeitura').textContent = historia.titulo;
+    document.getElementById('generoLeitura').textContent = `Gênero: ${historia.genero}`;
+    document.getElementById('dataLancamentoLeitura').textContent = `Lançado em: ${historia.dataLancamento}`;
+    document.getElementById('textoHistoria').textContent = historia.texto;
+
+    // Exibir a aba Leitura
+    exibirSeção('leitura');
+}
+
+// Voltar para a página inicial
+function voltarPaginaInicial() {
+    exibirSeção('paginaInicial');
+}
+
+// Exibir seção de acordo com o botão
+function exibirSeção(seçãoId) {
+    document.querySelectorAll('.seção').forEach(seção => {
+        seção.classList.remove('ativo');
+        seção.style.display = 'none';
+    });
+    document.querySelectorAll('.linha-princial button').forEach(botao => {
+        botao.classList.remove('ativo');
+    });
+    const seçãoAtiva = document.getElementById(seçãoId);
+    seçãoAtiva.classList.add('ativa');
+    seçãoAtiva.style.display = 'block';
+    const botaoAtivo = document.querySelector(`.linha-principalbutton[onclick="exibirSeção('${seçãoId}')"]`);
+    botaoAtivo.classList.add('ativo');
+}
+
+// Função para excluir a história
+function apagarHistoria(index) {
+    const historiasSalvas = JSON.parse(localStorage.getItem('historias')) || [];
+    historiasSalvas.splice(index, 1); // Remove a história pelo índice
+    localStorage.setItem('historias', JSON.stringify(historiasSalvas)); // Atualiza o localStorage
+    window.onload(); // Recarrega as histórias para refletir a exclusão
+}
+    // Atualizar data de modificação
+    const dateField = document.querySelector('.data-modificacao');
+    const today = new Date();
+    const formattedDate = today.toLocaleDateString('pt-BR');
+    dateField.value = formattedDate;
+;
+//OBSERVAR PARA APAGAR
+// Função para excluir a história
+function apagarHistoria(index) {
+    const historiasSalvas = JSON.parse(localStorage.getItem('historias')) || [];
+    historiasSalvas.splice(index, 1); // Remove a história pelo índice
+    localStorage.setItem('historias', JSON.stringify(historiasSalvas)); // Atualiza o localStorage
+    window.onload(); // Recarrega as histórias para refletir a exclusão
+}
+
+
+        function mostrarHistoria(elemento) {
+            // Encontra o elemento da caixa de história relacionado ao clique
+            const historia = elemento.closest('.historia').querySelector('.caixa-historia');
+
+            // Alterna a visibilidade da caixa de texto
+            if (historia.style.display === "none" || historia.style.display === "") {
+                historia.style.display = "block";
+            } else {
+                historia.style.display = "none";
+            }
+        }
+
+        // Salvar uma nova história
+function salvarHistoria() {
+    const titulo = document.getElementById('tituloHistoria').value || 'História Sem Título'; 
+    const genero = document.getElementById('generoHistoria').value;
+    const historia = document.getElementById('historia').value;
+    const imagem = document.getElementById('imagem').files[0]
+        ? URL.createObjectURL(document.getElementById('imagem').files[0])
+        : '../Imagens/Fundo.jpg';
+    const dataLancamento = new Date().toLocaleDateString();
+
+    // Verificar se o campo gênero foi selecionado
+    if (!genero) {
+        alert('Por favor, escolha um gênero para a sua história.');
+        return;
+    }
+
+    const historiasSalvas = JSON.parse(localStorage.getItem('historias')) || [];
+    historiasSalvas.push({
+        titulo,
+        genero,
+        texto: historia,
+        imagem,
+        dataLancamento,
+    });
+    localStorage.setItem('historias', JSON.stringify(historiasSalvas));
+
+    // Exibir mensagem de sucesso
+    alert('História enviada com sucesso!');
+
+    // Limpar os campos de texto
+    document.getElementById('tituloHistoria').value = '';
+    document.getElementById('generoHistoria').value = '';
+    document.getElementById('historia').value = '';
+    document.getElementById('imagem').value = '';
+
+    // Atualizar a página inicial para exibir a nova história
+    window.onload();
+}
+
+    </script>
+<div id="leitura" class="seção">
+    <h2 id="tituloLeitura"></h2>
+    <div class="detalhes-leitura">
+        <p id="generoLeitura"></p>
+        <p id="dataLancamentoLeitura"></p>
+    </div>
+    <div class="conteudo-leitura">
+        <p id="textoHistoria"></p>
+    </div>
+    <button onclick="voltarPaginaInicial()">Voltar para a Página Inicial</button>
+</div>
+    <div id="criar" class="seção">
+        <h2>Criar Nova História</h2>
+        <label for="tituloHistoria">Título da História:</label>
+        <input type="text" id="tituloHistoria" name="tituloHistoria" class="titulo-historia" placeholder="Digite o título da sua história">
+        <select id="generoHistoria" name="generoHistoria" class="genero-historia" required>
+            <option value="" disabled selected>Escolha o gênero</option>
+            <option value="Mistério">Mistério</option>
+            <option value="Fantasia">Fantasia</option>
+            <option value="Aventura">Aventura</option>
+            <option value="Romance">Romance</option>
+            <option value="Acao">Ação</option>
+            <option value="Biografia">Biografia</option>
+            <option value="Autobiografia">Autobiografia</option>
+            <option value="Fabula">Fábula</option>
+            <option value="Terror">Terror</option>
+            <option value="Suspense">Suspense</option>
+            <option value="Noticia">Notícia</option>
+            <option value="Comedia">Comédia</option>
+
+        </select>
+        <input type="text" class="data-modificacao" value="13/11/24" readonly />
+        <textarea id="historia" name="historia" placeholder="Digite sua história aqui..." rows="10"></textarea>
+        <br><br>
+        <label for="imagem">Escolher imagem para a história (opcional):</label>
+        <input type="file" id="imagem" name="imagem" accept="image/*"><br><br>
+        <button onclick="salvarHistoria()">Salvar História</button>
+    </div>
+
+    <div id="dicasSecao" class="seção">
+        <h2>Dicas de Português e Escrita</h2>
+        <!-- Tabelas de dicas -->
+        <div class="dicas-tabelas">
+            <!-- Tabela: Quando usar vírgula -->
+            <h3>Quando Usar a Vírgula</h3>
+            <table class="dicas-tabela">
+                <thead>
+                    <tr>
+                        <th>Situação</th>
+                        <th>Exemplo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Separar elementos de uma lista</td>
+                        <td>Comprei frutas, legumes e verduras.</td>
+                    </tr>
+                    <tr>
+                        <td>Antes de conjunções adversativas</td>
+                        <td>Estudei bastante, mas fiquei nervoso.</td>
+                    </tr>
+                    <tr>
+                        <td>Isolar vocativos</td>
+                        <td>João, venha aqui!</td>
+                    </tr>
+                </tbody>
+            </table>
+    
+            <!-- Tabela: Quando usar crase -->
+            <h3>Quando Usar a Crase</h3>
+            <table class="dicas-tabela">
+                <thead>
+                    <tr>
+                        <th>Situação</th>
+                        <th>Exemplo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Antes de palavras femininas</td>
+                        <td>Fui à escola.</td>
+                    </tr>
+                    <tr>
+                        <td>Nas locuções prepositivas</td>
+                        <td>À medida que estudava, aprendia mais.</td>
+                    </tr>
+                    <tr>
+                        <td>Em expressões com horas</td>
+                        <td>A aula começa às 8 horas.</td>
+                    </tr>
+                </tbody>
+            </table>
+    
+            <!-- Tabela: Quando usar travessão -->
+            <h3>Quando Usar o Travessão</h3>
+            <table class="dicas-tabela">
+                <thead>
+                    <tr>
+                        <th>Situação</th>
+                        <th>Exemplo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Para introduzir falas em diálogos</td>
+                        <td>– Onde você estava? – perguntou ela.</td>
+                    </tr>
+                    <tr>
+                        <td>Para isolar informações adicionais</td>
+                        <td>O professor – que é muito exigente – elogiou o trabalho.</td>
+                    </tr>
+                    <tr>
+                        <td>Para marcar interrupções</td>
+                        <td>Eu pensei que... – Não importa, disse ele.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+     
+            <ul class="estilo-lista">
+              <li><a href="https://chat.openai.com/" target="_blank" rel="noopener noreferrer" class="link1">Dúvidas? Visite o ChatGPT</a></li>
+              <li><a href="https://www.google.com/" target="_blank" rel="noopener noreferrer" class="link2">Dúvidas? Visite o Google</a></li>
+            </ul> 
+    </div>
+    <!-- Rodapé com imagem clicável -->
+<footer>
+ </figure>
+    <a href="./HTML/Pagina_creditos.html">
+      <img src="./Imagens/logo1.png" alt="Créditos" class="rodape-imagem">
+    </a>
+    <figcaption>Créditos</figcaption>
+    </figure>
+  </footer>
+  
+    <script>
+        function exibirSeção(seçãoId) {
+            document.querySelectorAll('.seção').forEach(seção => {
+                seção.classList.remove('ativa');
+                seção.style.display = 'none';
+            });
+            document.querySelectorAll('.navbar-principal button').forEach(botao => {
+                botao.classList.remove('ativo');
+            });
+            const seçãoAtiva = document.getElementById(seçãoId);
+            seçãoAtiva.classList.add('ativa');
+            seçãoAtiva.style.display = 'block';
+            const botaoAtivo = document.querySelector(`.navbar-principal button[onclick="exibirSeção('${seçãoId}')"]`);
+            botaoAtivo.classList.add('ativo');
+        }
+    </script>
+    
+</body>
+</html>
